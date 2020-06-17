@@ -1,0 +1,26 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+from collections import defaultdict
+
+n = int(input())
+dic = defaultdict(list)
+
+count = 0
+while n > 1:
+    if n % 2 == 0:
+        n = n//2
+    else:
+        n=(3*n)+1
+    dic[n].append(n)
+    print(n)
+    count=count+1
+    pos = np.arange(len(dic.keys()))
+    width = 1.0 
+    ax = plt.axes()
+    ax.set_xticks(pos + (width / 2))
+    ax.set_xticklabels(dic.keys())
+    plt.bar(dic.keys(), width, color='g')
+    
+print("count = ", count)
+print(dic)
